@@ -18,4 +18,5 @@ add_compile_options(
 # add_executable(ch01_03 ch01/03_declaring_functions.cpp)
 # add_executable(ch01_04 ch01/04_function_overloading.cpp)
 # add_executable(ch02_00 ch02/00_structs.cpp)
-add_executable(ch02_01 ch02/01_classes.cpp)
+# add_executable(ch02_01 ch02/01_classes.cpp)
+add_executable(ch02_02 ch02/02_enumerations.cpp)
