@@ -12,8 +12,10 @@ add_compile_options(
     -Wpedantic
 )
 
-add_executable(ch01_00 ch01/00_simplest_program.cpp)
-add_executable(ch01_01 ch01/01_hello_world.cpp)
-add_executable(ch01_02 ch01/02_calling_functions.cpp)
-add_executable(ch01_03 ch01/03_declaring_functions.cpp)
-add_executable(ch01_04 ch01/04_function_overloading.cpp)
+# add_executable(ch01_00 ch01/00_simplest_program.cpp)
+# add_executable(ch01_01 ch01/01_hello_world.cpp)
+# add_executable(ch01_02 ch01/02_calling_functions.cpp)
+# add_executable(ch01_03 ch01/03_declaring_functions.cpp)
+# add_executable(ch01_04 ch01/04_function_overloading.cpp)
+# add_executable(ch02_00 ch02/00_structs.cpp)
+add_executable(ch02_01 ch02/01_classes.cpp)
