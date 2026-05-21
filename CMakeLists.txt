@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.28)
 
 project(cpp_tour LANGUAGES CXX)
 
@@ -6,18 +6,38 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_compile_options(
+add_executable(cpp_tour)
+
+if(APPLE)
+    execute_process(
+        COMMAND xcrun --show-sdk-path
+        OUTPUT_VARIABLE MACOSX_SDK_PATH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+
+    target_compile_options(cpp_tour PRIVATE
+        -isysroot ${MACOSX_SDK_PATH}
+    )
+
+    target_link_options(cpp_tour PRIVATE
+        -isysroot ${MACOSX_SDK_PATH}
+    )
+endif()
+
+target_sources(cpp_tour
+    PRIVATE
+        ch03/vector_user.cpp
+)
+
+target_sources(cpp_tour
+    PRIVATE
+        FILE_SET cxx_modules TYPE CXX_MODULES
+        FILES
+            ch03/Vector.cppm
+)
+
+target_compile_options(cpp_tour PRIVATE
     -Wall
     -Wextra
     -Wpedantic
 )
-
-# add_executable(ch01_00 ch01/00_simplest_program.cpp)
-# add_executable(ch01_01 ch01/01_hello_world.cpp)
-# add_executable(ch01_02 ch01/02_calling_functions.cpp)
-# add_executable(ch01_03 ch01/03_declaring_functions.cpp)
-# add_executable(ch01_04 ch01/04_function_overloading.cpp)
-# add_executable(ch02_00 ch02/00_structs.cpp)
-# add_executable(ch02_01 ch02/01_classes.cpp)
-# add_executable(ch02_02 ch02/02_enumerations.cpp)
-add_executable(ch02_03 ch02/03_unions.cpp)
